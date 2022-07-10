@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  
+  <title>Weather API</title>
+  <!-- Favicon
+  <link rel="shortcut icon" type="image/ico" href="./assets/images/favicon.ico"> -->
+</head>
+
+<body>
+  <header class="bg-dark text-light text-center">
+    <h1>Weather Dashboard</h1>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+
+      <div class="row">
+          <!-- Search city section -->
+          <section id="search" class="col-4">
+            <div class="row d-flex ">
+              <h3 class="col-12">
+                Search For a City:
+              </h3>
+              <input id="input-city" class="col-12 rounded" placeholder="San Diego" type="text" />
+              <button id="search-button" class="col-12 rounded btn btn-secondary" title="Search">Search</button>
+            </div>
+
+            <div id="city-list" class="row d-flex">
+              <ul class="w-100 container">
+                <!-- li items created via JS function-->
+              </ul>
+            </div>
+          </section>
+
+          <section id="weather" class="col-8">
+              <!-- Display current city weather -->
+              <div class="row">
+              </div>
+            
+              <!-- Display next 5 days forecast-->
+              <div id="five-days-forecast" class="row">
+              </div>
+          </section>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JS -->
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWkMk0SZcUUxPMUw__hBkOQRaahoZMZHo"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>
