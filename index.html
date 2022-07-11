@@ -11,12 +11,11 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
 
   <title>Weather API</title>
-  <!-- Favicon
-  <link rel="shortcut icon" type="image/ico" href="./assets/images/favicon.ico"> -->
+
 </head>
 
 <body>
-  <header class="bg-dark text-light text-center">
+  <header class="bg-info text-light text-center">
     <h1>Weather Dashboard</h1>
   </header>
 
@@ -30,8 +29,8 @@
               <h3 class="col-12">
                 Search For a City:
               </h3>
-              <input id="input-city" class="col-12 rounded" placeholder="San Diego" type="text" />
-              <button id="search-button" class="col-12 rounded btn btn-primary" title="Search">Search</button>
+              <input id="input-city" class="col-12 rounded m-1" placeholder="San Diego" type="text" />
+              <button id="search-button" class="col-12 rounded btn btn-info m-1" title="Search">Search</button>
             </div>
 
             <!-- Display the city history -->
@@ -41,7 +40,7 @@
 
           <section id="weather" class="col-8">
               <!-- Display current city weather -->
-              <div class="row d-flex border border-primary">
+              <div class="row d-flex border border-info m-1">
                 <h2 id="city" class="col-12"></h2>
                 <div class="col-12"><label>Temp: </label><span id="temperature"></span></div>
                 <div class="col-12"><label>Wind: </label><span id="wind"></span></div>
@@ -53,7 +52,7 @@
               <div class="row">
                 <h2 class="col-12">5-Day Forecast:</h2>
                 <div id="five-days-forecast" class="col-12 d-flex flex-row">
-                  <div class="template">
+                  <div class="template bg-dark text-white m-2">
                     <h4 class="date col-12"></h4>
                     <div class="icon col-12"></div>
                     <div class="col-12"><label>Temp: </label><span class="temperature"></span></div>

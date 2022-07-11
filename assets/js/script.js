@@ -134,7 +134,7 @@ function renderHistory() {
 
     // Redner the buttons
     for (var i = 0; i < state.history.length; i++){
-        var city = $("<button class='col-12 rounded btn btn-secondary'></button>");
+        var city = $("<button class='col-12 rounded btn btn-secondary m-1'></button>");
         city.text(state.history[i]);
         city.on('click', function() {
             var button = $(this);
