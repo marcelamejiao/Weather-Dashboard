@@ -24,12 +24,6 @@ function init () {
         }
 
         renderHistory();
-
-        
-        // Get the city's weather
-        // Render the city's weather on the screen
-        // Render the 5 day forecast 
-        // Render search history
     });
 }
 
@@ -74,7 +68,14 @@ function renderWeather(city) {
                 var today = new Date();
                 var todayString = ' (' +today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear() + ')';
 
-                $("#city").text(city + todayString);
+                // Generate the weather icons
+                var iconHtml = '';
+                for(var currentWeather of weather.current.weather) {
+                    iconHtml += "<img width='64px' title='" + currentWeather.description + "' src='http://openweathermap.org/img/wn/" + currentWeather.icon + "@2x.png' />";
+                }
+
+                // Set the values
+                $("#city").html(city + todayString + iconHtml);
                 $("#temperature").text(weather.current.temp + "°C");
                 $("#wind").text(weather.current.wind_speed + " km/h");
                 $("#humidity").text(weather.current.humidity + " %");
@@ -106,8 +107,18 @@ function renderWeather(city) {
                     // Get the day's date
                     var date = new Date(dayWeather.dt * 1000);
 
+                    // Generate the weather icons
+                    var iconHtml = '';
+                    for(var currentWeather of dayWeather.weather) {
+                        iconHtml += "<img width='64px' title='" + currentWeather.description + "' src='http://openweathermap.org/img/wn/" + currentWeather.icon + "@2x.png' />";
+                    }
+
                     // Set the values
                     forecast.find('.date').text(date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear());
+                    forecast.find('.icon').html(iconHtml);
+                    forecast.find('.temperature').text(dayWeather.temp.day + "°C");
+                    forecast.find('.wind').text(dayWeather.wind_speed + " km/h");
+                    forecast.find('.humidity').text(dayWeather.humidity + " %");
 
                     // Add the forecast to the 5-day-forecast
                     $('#five-days-forecast').append(forecast);
@@ -118,7 +129,10 @@ function renderWeather(city) {
 }
 
 function renderHistory() {
+    // Avoid duplicate buttons
     $("#city-list").empty();
+
+    // Redner the buttons
     for (var i = 0; i < state.history.length; i++){
         var city = $("<button class='col-12 rounded btn btn-secondary'></button>");
         city.text(state.history[i]);
@@ -129,7 +143,6 @@ function renderHistory() {
 
         $("#city-list").append(city);
     }
-    
 }
 
 init();
