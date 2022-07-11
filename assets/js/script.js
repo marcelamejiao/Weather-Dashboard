@@ -7,13 +7,15 @@ function init () {
     renderHistory();
 
     $("#search-button").on('click',function(){
-
         // Search city and get the coordinates
         var city = $("#input-city").val();
         renderWeather(city);
 
-        state.history.push(city);
-        saveState()
+        // Ensure the city is not duplicated
+        if (state.history.indexOf(city) === -1) {
+            state.history.push(city);
+            saveState()
+        }
 
         renderHistory();
 
