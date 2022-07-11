@@ -1,0 +1,17 @@
+#uv-index {
+    border-radius: 15%;
+    color: white;
+    padding: 0.2rem;
+}
+
+#uv-index.favorable {
+    background-color: green;
+}
+
+#uv-index.moderate {
+    background-color: blue;
+}
+
+#uv-index.severe {
+    background-color: red;
+}

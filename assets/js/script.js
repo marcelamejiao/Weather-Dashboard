@@ -78,8 +78,16 @@ function renderWeather(city) {
                 $("#temperature").text(weather.current.temp + "°C");
                 $("#wind").text(weather.current.wind_speed + " km/h");
                 $("#humidity").text(weather.current.humidity + " %");
-                $("#uv-index").text(weather.current.uvi);
                 
+                // Set the UV Index
+                $("#uv-index").text(weather.current.uvi);
+                if (weather.current.uvi <= 2) {
+                    $("#uv-index").addClass('favorable');
+                } else if (weather.current.uvi <= 5) {
+                    $("#uv-index").addClass('moderate');
+                } else if (weather.current.uvi > 5) {
+                    $("#uv-index").addClass('severe');
+                }
             });
         })
         ;
