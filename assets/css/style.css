@@ -19,3 +19,13 @@
 .template {
     display: none;
 }
+
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: x-large;
+    }
+
+    h2 {
+        font-size: large;
+    }
+}
