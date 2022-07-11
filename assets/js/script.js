@@ -1,11 +1,22 @@
-var state = {};
+var state = {
+    history:[]
+};
 
 function init () {
+    loadState();
+    renderHistory();
+
     $("#search-button").on('click',function(){
 
         // Search city and get the coordinates
         var city = $("#input-city").val();
         renderWeather(city);
+
+        state.history.push(city);
+        saveState()
+
+        renderHistory();
+
         
         // Get the city's weather
         // Render the city's weather on the screen
@@ -64,6 +75,16 @@ function renderWeather(city) {
             });
         })
         ;
+}
+
+function renderHistory() {
+    $("#city-list").empty();
+    for (var i = 0; i < state.history.length; i++){
+        var city = $("<li></li>");
+        city.text(state.history[i]);
+        $("#city-list").append(city);
+    }
+    
 }
 
 init();
