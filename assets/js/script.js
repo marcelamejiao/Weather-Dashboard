@@ -9,6 +9,12 @@ function init () {
     $("#search-button").on('click',function(){
         // Search city and get the coordinates
         var city = $("#input-city").val();
+        // Make sure the city has been provided
+        if (city === "") {
+            window.alert("Please provide a city.");
+            return;
+        }
+
         renderWeather(city);
 
         // Ensure the city is not duplicated
