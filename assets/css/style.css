@@ -15,3 +15,7 @@
 #uv-index.severe {
     background-color: red;
 }
+
+.template {
+    display: none;
+}

@@ -88,6 +88,30 @@ function renderWeather(city) {
                 } else if (weather.current.uvi > 5) {
                     $("#uv-index").addClass('severe');
                 }
+
+                // Render the 5 day forecast
+                var template = $('#five-days-forecast .template');
+                
+                // Remove old forecasts
+                $('#five-days-forecast .forecast').remove();
+                for (var i = 1; i < 6; i++) {
+                    var forecast = template.clone();
+                    // Remove the template class so that it is visible
+                    forecast.removeClass('template');
+                    forecast.addClass('forecast');
+
+                    // Get the weather for this day
+                    var dayWeather = weather.daily[i];
+
+                    // Get the day's date
+                    var date = new Date(dayWeather.dt * 1000);
+
+                    // Set the values
+                    forecast.find('.date').text(date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear());
+
+                    // Add the forecast to the 5-day-forecast
+                    $('#five-days-forecast').append(forecast);
+                }
             });
         })
         ;
