@@ -43,7 +43,7 @@ function saveState() {
 
 function renderWeather(city) {
     // get the coordinates of the city
-    fetch("https://maps.googleapis.com/maps/api/geocode/json?address=" + encodeURIComponent(city) + '&key=AIzaSyBWkMk0SZcUUxPMUw__hBkOQRaahoZMZHo')
+    fetch("https://maps.googleapis.com/maps/api/geocode/json?address=" + encodeURIComponent(city) + '&key=AIzaSyC0_tqetK9sv-r10xYFHKX1A27TE2TDOPE')
         .then(response => response.json())
         .then(data => {
             // Gets the city longitude and latitude coordinates
